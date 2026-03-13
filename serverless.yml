@@ -1,0 +1,53 @@
+org: chittaworn
+app: user-service-app
+service: user-service
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: ap-southeast-1
+  stage: ${opt:stage, 'dev'}
+
+build:
+  esbuild:
+    bundle: true
+    minify: false
+    sourcemap: true
+
+functions:
+  createUser:
+    handler: handler.createUser
+    events:
+      - httpApi:
+          path: /users
+          method: post
+  listUsers:
+    handler: handler.listUsers
+    events:
+      - httpApi:
+          path: /users
+          method: get
+  getUser:
+    handler: handler.getUser
+    events:
+      - httpApi:
+          path: /users/{id}
+          method: get
+  findByEmail:
+    handler: handler.findByEmail
+    events:
+      - httpApi:
+          path: /users/search
+          method: get
+  updateUser:
+    handler: handler.updateUser
+    events:
+      - httpApi:
+          path: /users/{id}
+          method: put
+  deleteUser:
+    handler: handler.deleteUser
+    events:
+      - httpApi:
+          path: /users/{id}
+          method: delete
