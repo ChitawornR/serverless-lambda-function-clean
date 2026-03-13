@@ -1,4 +1,4 @@
-import { UserRepository } from "../repositories/User.Repository";
+import { UserMysqlRepository } from "../repositories/User.Mysql.Repository";
 import { CreateUserUseCase } from "../../application/use-cases/CreateUser.UseCase";
 import { FindAllUsersUseCase } from "../../application/use-cases/FindAllUsers.UseCase";
 import { FindUserByIdUseCase } from "../../application/use-cases/FindUserById.UseCase";
@@ -6,7 +6,7 @@ import { FindUserByEmailUseCase } from "../../application/use-cases/FindUserByEm
 import { UpdateUserUseCase } from "../../application/use-cases/UpdateUser.UseCase";
 import { DeleteUserUseCase } from "../../application/use-cases/DeleteUser.UseCase";
 
-const userRepository = new UserRepository();
+const userRepository = new UserMysqlRepository();
 
 export const createUserUseCase = new CreateUserUseCase(userRepository);
 export const findAllUsersUseCase = new FindAllUsersUseCase(userRepository);

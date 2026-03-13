@@ -7,6 +7,15 @@ provider:
   runtime: nodejs20.x
   region: ap-southeast-1
   stage: ${opt:stage, 'dev'}
+  environment:
+    DB_HOST: ${env:DB_HOST, 'localhost'}
+    DB_USER: ${env:DB_USER, 'root'}
+    DB_PASSWORD: ${env:DB_PASSWORD, ''}
+    DB_NAME: ${env:DB_NAME, 'serverless_offline'}
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-offline
 
 build:
   esbuild:
