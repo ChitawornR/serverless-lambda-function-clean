@@ -26,37 +26,37 @@ build:
 
 functions:
   createUser:
-    handler: handler.createUser
+    handler: src/presentation/handlers/UserHandler.createUser
     events:
       - httpApi:
           path: /${sls:stage}/users
           method: post
   listUsers:
-    handler: handler.listUsers
+    handler: src/presentation/handlers/UserHandler.listUsers
     events:
       - httpApi:
           path: /${sls:stage}/users
           method: get
   getUser:
-    handler: handler.getUser
+    handler: src/presentation/handlers/UserHandler.getUser
     events:
       - httpApi:
           path: /${sls:stage}/users/{id}
           method: get
   findByEmail:
-    handler: handler.findByEmail
+    handler: src/presentation/handlers/UserHandler.findByEmail
     events:
       - httpApi:
           path: /${sls:stage}/users/search
           method: get
   updateUser:
-    handler: handler.updateUser
+    handler: src/presentation/handlers/UserHandler.updateUser
     events:
       - httpApi:
           path: /${sls:stage}/users/{id}
           method: put
   deleteUser:
-    handler: handler.deleteUser
+    handler: src/presentation/handlers/UserHandler.deleteUser
     events:
       - httpApi:
           path: /${sls:stage}/users/{id}
