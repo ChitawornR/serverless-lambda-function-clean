@@ -5,6 +5,8 @@ import { FindUserByIdUseCase } from "../../application/use-cases/FindUserById.Us
 import { FindUserByEmailUseCase } from "../../application/use-cases/FindUserByEmail.UseCase";
 import { UpdateUserUseCase } from "../../application/use-cases/UpdateUser.UseCase";
 import { DeleteUserUseCase } from "../../application/use-cases/DeleteUser.UseCase";
+import { RegisterUserUseCase } from "../../application/use-cases/RegisterUser.UseCase";
+import { LoginUserUseCase } from "../../application/use-cases/LoginUser.UseCase";
 
 const userRepository = new UserMysqlRepository();
 
@@ -14,3 +16,5 @@ export const findUserByIdUseCase = new FindUserByIdUseCase(userRepository);
 export const findUserByEmailUseCase = new FindUserByEmailUseCase(userRepository);
 export const updateUserUseCase = new UpdateUserUseCase(userRepository);
 export const deleteUserUseCase = new DeleteUserUseCase(userRepository);
+export const registerUserUseCase = new RegisterUserUseCase(userRepository);
+export const loginUserUseCase = new LoginUserUseCase(userRepository);

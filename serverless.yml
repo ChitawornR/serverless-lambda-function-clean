@@ -14,6 +14,12 @@ provider:
     DB_USER: ${env:DB_USER, 'root'}
     DB_PASSWORD: ${env:DB_PASSWORD, ''}
     DB_NAME: ${env:DB_NAME, 'serverless_offline'}
+    JWT_SECRET: ${env:JWT_SECRET, 'dev-secret-key'}
+    JWT_EXPIRES_IN: ${env:JWT_EXPIRES_IN, '7d'}
+
+custom:
+  serverless-offline:
+    httpPort: 3001
 
 plugins:
   - serverless-offline
@@ -61,3 +67,16 @@ functions:
       - httpApi:
           path: /${sls:stage}/users/{id}
           method: delete
+
+  register:
+    handler: src/presentation/handlers/AuthHandler.register
+    events:
+      - httpApi:
+          path: /${sls:stage}/auth/register
+          method: post
+  login:
+    handler: src/presentation/handlers/AuthHandler.login
+    events:
+      - httpApi:
+          path: /${sls:stage}/auth/login
+          method: post
