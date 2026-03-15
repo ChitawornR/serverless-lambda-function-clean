@@ -28,35 +28,35 @@ functions:
     handler: handler.createUser
     events:
       - httpApi:
-          path: /users
+          path: /${sls:stage}/users
           method: post
   listUsers:
     handler: handler.listUsers
     events:
       - httpApi:
-          path: /users
+          path: /${sls:stage}/users
           method: get
   getUser:
     handler: handler.getUser
     events:
       - httpApi:
-          path: /users/{id}
+          path: /${sls:stage}/users/{id}
           method: get
   findByEmail:
     handler: handler.findByEmail
     events:
       - httpApi:
-          path: /users/search
+          path: /${sls:stage}/users/search
           method: get
   updateUser:
     handler: handler.updateUser
     events:
       - httpApi:
-          path: /users/{id}
+          path: /${sls:stage}/users/{id}
           method: put
   deleteUser:
     handler: handler.deleteUser
     events:
       - httpApi:
-          path: /users/{id}
+          path: /${sls:stage}/users/{id}
           method: delete
