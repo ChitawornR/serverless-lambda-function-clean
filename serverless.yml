@@ -2,6 +2,8 @@ org: chittaworn
 app: user-service-app
 service: user-service
 
+useDotenv: true
+
 provider:
   name: aws
   runtime: nodejs20.x
@@ -14,7 +16,6 @@ provider:
     DB_NAME: ${env:DB_NAME, 'serverless_offline'}
 
 plugins:
-  - serverless-dotenv-plugin
   - serverless-offline
 
 build:
